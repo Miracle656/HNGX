@@ -1,21 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta />
-    <title>STAGE ONE TASK</title>
-  </head>
-  <body>
-    <div>
-      <h1 data-testid="slackUserName">Ebube Ukpai</h1>
-      <img data-testid="slackDisplayImage" src="" alt="Ebube Ukpai" />
-    </div>
-    <div>
-      <p data-testid="currentDayOfWeek" >Thursday</p>
-      <p data-testid="currentUTCTime" >18:51pm</p>
-    </div>
-    <div>
-      <p data-testid="myTrack" >Frontend</p>
-      <a data-testid="githubURL" href="" target="_blank">GitHub REPO</a>
-    </div>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAGE ONE TASK</title>
+
+  <style>
+    body {
+      background-color: #06343fec;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      color: rgb(172, 179, 174)
+    }
+
+    a {
+      color: #22ac2e;
+    }
+
+    .date{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .date #day{
+      margin-bottom: -10px;
+    }
+
+    .data {
+      display: flex;
+    }
+
+    img {
+      margin-right: 5px;
+      width: 100px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="data">
+    <img data-testid="slackDisplayImage"
+      src="https://previews.123rf.com/images/yurich84/yurich842001/yurich84200100044/140672772-program-code-javascript-php-html-css-of-site-web-development-source-code-script-programmer.jpg"
+      alt="Ebube Ukpai" />
+    <h1 data-testid="slackUserName">Ebube Ukpai</h1>
+  </div>
+  <div class="date">
+    <p id="day" data-testid="currentDayOfWeek"></p>
+    <p id="time" data-testid="currentUTCTime"></p>
+  </div>
+  <div class="repo">
+    <span id="stack" data-testid="myTrack">Track: Frontend track >> </span>
+    <a data-testid="githubURL" href="https://github.com/Miracle656/HNGX" target="_blank">GitHub REPO</a>
+  </div>
+
+  <script>
+    let dayOfWeek = document.getElementById('day');
+
+    let date_obj = new Date();
+    dayOfWeek.innerText = `Day: ${date_obj.toDateString()}`;
+
+    setInterval(myTime, 1000);
+
+     function myTime(){
+      const date = new Date()
+      document.getElementById('time').innerHTML = `Time: ${date.toLocaleTimeString()}`;
+    }
+    
+
+  </script>
+</body>
+
 </html>
